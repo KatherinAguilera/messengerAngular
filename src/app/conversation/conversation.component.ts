@@ -14,6 +14,8 @@ export class ConversationComponent implements OnInit {
   friendId: any;
   friends: User[];
   friend: User;
+  price: number;
+  today: any;
   // acceder a los parametro que me llegan por navegacion
   constructor(private activatedRoute: ActivatedRoute, private userService: UserService) {
     this.friendId = this.activatedRoute.snapshot.params['uid'];
@@ -25,6 +27,8 @@ export class ConversationComponent implements OnInit {
       return record.uid == this.friendId;
     });
     console.log(this.friend);
+    this.price = 78.3454;
+    this.today = Date.now();
   }
 
   ngOnInit() {
