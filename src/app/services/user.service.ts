@@ -43,8 +43,8 @@ export class UserService {
       uid: 5
     };
     this.friends = [usuario1, usuario2, usuario3, usuario4, usuario5];
-   }
-   getFriends() {
+  }
+  getFriends() {
     return this.friends;
-   }
+  }
 }
