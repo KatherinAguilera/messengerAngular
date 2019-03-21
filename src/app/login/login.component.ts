@@ -59,6 +59,7 @@ export class LoginComponent implements OnInit {
           this.userService.createUser(user).then((data2) => {
             alert('Registrado correctamente');
             console.log(data2);
+            this.router.navigate(['home']);
           }).catch((error) => {
             alert('Ocurrioo un error');
             console.log(error);
