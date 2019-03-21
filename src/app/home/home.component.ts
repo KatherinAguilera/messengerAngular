@@ -12,7 +12,11 @@ import { User } from '../interfaces/user';
       query: string = '';
         // inyectar un servicio
       constructor(private userService: UserService) {
-        this.friends = userService.getFriends();
+        this.userService.getUsers().valueChanges().subscribe((data: User[]) => {
+          this.friends = data;
+        }, (error) => {
+          console.log(error);
+        });
       }
   ngOnInit() {
   }
