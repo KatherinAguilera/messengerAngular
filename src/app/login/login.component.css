@@ -3,3 +3,14 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.facebook{
+  background: #4267B2;
+  margin-left: 8px;
+  color: azure;
+}
+
+.facebook:hover{
+  background: #3B5CA0;
+  color: azure;
+  margin-left: 8px;
+}

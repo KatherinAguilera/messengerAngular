@@ -22,6 +22,8 @@
           <p *ngIf="operation == 'login'"> No tienes cuenta? <a (click)="operation = 'register'" >Registrate</a></p>
           <button (click)="login()" *ngIf="operation == 'login'" class="btn btn-primary">Iniciar Sesión</button>
           <button (click)="register()" *ngIf="operation == 'register'" class="btn btn-primary">Registrarme</button>
+          <button (click)="loginWithFacebook()" *ngIf="operation == 'login'"class="btn facebook">Iniciar con Facebook</button>
+          <button (click)="loginWithFacebook()" *ngIf="operation == 'register'"class="btn facebook">Loguear con facebook</button>
         </div>
       </div>
     </div>

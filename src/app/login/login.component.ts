@@ -42,5 +42,16 @@ export class LoginComponent implements OnInit {
         console.log(error);
       });
   }
+  loginWithFacebook() {
+    this.authenticationService.loginWithFacebook()
+      .then( data => {
+        alert('Logeado con Facebook correctamente')
+        console.log(data)
+      })
+      .catch( error => {
+        alert('Ocurrió un error')
+        console.log(error)
+      })
+  }
 
 }

@@ -12,6 +12,10 @@ export class AuthenticationService {
   // loginSocial() {
   //   return this.angularFireAuth.auth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
   // }
+  loginWithFacebook() {
+    let provider = new firebase.auth.FacebookAuthProvider();
+    return this.angularFireAuth.auth.signInWithPopup(provider);
+  }
 // Autenticacion con Email
   loginWithEmail(email: string, password: string) {
     return this.angularFireAuth.auth.signInWithEmailAndPassword(email, password);
