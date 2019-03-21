@@ -40,3 +40,12 @@ a{
 .generalContent {
   margin-top: 56px;
 }
+#homeAvatarPicture {
+  max-width: 100px;
+}
+.disblo {
+  display: block !important;
+}
+.marbo5 {
+  margin-bottom: 5px;
+}
