@@ -1,5 +1,8 @@
 <!--Usar modulo de rutas-->
-<app-menu></app-menu>
-<div class="generalContent">
+
+<!--Login no se debe de Mostar menu-->
+<app-menu *ngIf="router.url != '/login'"></app-menu>
+<!--Aplicar estilos clase se aplica : cuando esta en la pantalla de login-->
+<div [ngClass]="{'generalContent': router.url != '/login'}">
   <router-outlet></router-outlet>
 </div>
