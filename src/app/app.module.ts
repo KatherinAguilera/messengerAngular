@@ -19,6 +19,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from 'src/environments/environment';
 import {AuthenticationGuard} from './services/authentication.guard';
+import { ImageCropperModule } from'ngx-image-cropper';
+import { ImageCroppedEvent } from 'ngx-image-cropper/src/interfaces/image-cropped-event.interface';
 //Declaracion de Rutas en la app
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -46,8 +48,9 @@ const appRoutes: Routes = [
   AngularFireModule.initializeApp(environment.firebase),
   AngularFirestoreModule, // imports firebase/firestore, only needed for database features
   AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-  AngularFireStorageModule ,
-  AngularFireDatabaseModule
+  AngularFireStorageModule,
+  AngularFireDatabaseModule,
+  ImageCropperModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -23,4 +23,8 @@ export class UserService {
     editUser(user) {
       return this.angularFireDatabase.object('/users/' + user.uid).set(user);
     }
+    // guardar imagen del usuario
+    setAvatar(avatar, uid) {
+      return this.angularFireDatabase.object('/users/' + uid + '/avatar').set(avatar);
+    }
 }
