@@ -4,6 +4,7 @@ import {User} from '../interfaces/user';
 import {UserService} from '../services/user.service';
 import {ConversationService} from '../services/conversation.service';
 import {AuthenticationService} from '../services/authentication.service';
+import {AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-conversation',
@@ -19,8 +20,11 @@ export class ConversationComponent implements OnInit {
   conversation: any[];
   shake: boolean = false;
 
+  croppedImage: any = '';
+picture: any = '';
+imageChangedEvent: any = '';
   constructor(private activatedRoute: ActivatedRoute,
-              private userService: UserService, private conversationService: ConversationService, private authenticationService: AuthenticationService) {
+              private userService: UserService, private conversationService: ConversationService, private authenticationService: AuthenticationService, private firebaseStorage: AngularFireStorage) {
     this.friendId = this.activatedRoute.snapshot.params['uid'];
     console.log(this.friendId);
     this.authenticationService.getStatus().subscribe((session) => {
@@ -76,6 +80,33 @@ export class ConversationComponent implements OnInit {
       this.shake = false;
     }, 1000);
   }
+
+
+  
+sendImagen(){
+  if(this.croppedImage){
+    const currentPictureId = Date.now();
+    const picture = this.firebaseStorage.ref('conversation/pictures/' +this.conversation_id+'/'+currentPictureId+'.jpg').putString(this.croppedImage, 'data_url');
+    picture.then( (result) => {
+      this.picture = this.firebaseStorage.ref('conversation/pictures/'+this.conversation_id+'/'+currentPictureId+'.jpg').getDownloadURL();
+      this.picture.subscribe((p) => {
+        const message = {
+          uid: this.conversation_id,
+          timestamp: Date.now(),
+          text: p,
+          sender: this.user.uid,
+          receiver: this.friend.uid,
+          type: 'image'
+        }
+        this.conversationService.createConversation(message).then( () => {});
+      });
+    }).catch( (error) => {
+      console.log(error);
+    });
+  }
+ 
+}
+
   getConversation() {
     this.conversationService.getConversation(this.conversation_id).valueChanges().subscribe((data) => {
       this.conversation = data;

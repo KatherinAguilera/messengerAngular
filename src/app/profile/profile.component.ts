@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
         this.picture = this.firebaseStorage.ref('pictures/' + currentPictureId + '.jpg').getDownloadURL();
         this.picture.subscribe((p) => {
           this.userService.setAvatar(p, this.user.uid).then(() => {
-            alert('Avatar subido correctamentne');
+            alert('Avatar subido correctamente');
           }).catch((error) => {
             alert('Hubo un error al tratar de subir la imagen');
             console.log(error);

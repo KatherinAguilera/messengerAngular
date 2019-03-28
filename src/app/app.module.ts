@@ -21,6 +21,8 @@ import { environment } from 'src/environments/environment';
 import {AuthenticationGuard} from './services/authentication.guard';
 import { ImageCropperModule } from'ngx-image-cropper';
 import { ImageCroppedEvent } from 'ngx-image-cropper/src/interfaces/image-cropped-event.interface';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+// import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 //Declaracion de Rutas en la app
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -50,7 +52,9 @@ const appRoutes: Routes = [
   AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
   AngularFireStorageModule,
   AngularFireDatabaseModule,
-  ImageCropperModule
+  ImageCropperModule,
+  NgbModule.forRoot(),
+  // BootstrapModalModule.forRoot({container: document.body})
   ],
   providers: [],
   bootstrap: [AppComponent]
