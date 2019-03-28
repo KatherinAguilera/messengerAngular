@@ -35,7 +35,9 @@ export class ProfileComponent implements OnInit {
   // Guardar cambios en firebase
   saveSettings() {
     if (this.croppedImage) {
+      // fecha y hora de subida de la img
       const currentPictureId = Date.now();
+      // referenciar pictures dentro del storage
       const pictures = this.firebaseStorage.ref('pictures/' + currentPictureId + '.jpg').putString(this.croppedImage, 'data_url');
       pictures.then((result) => {
         this.picture = this.firebaseStorage.ref('pictures/' + currentPictureId + '.jpg').getDownloadURL();
