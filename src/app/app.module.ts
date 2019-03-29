@@ -22,7 +22,8 @@ import {AuthenticationGuard} from './services/authentication.guard';
 import { ImageCropperModule } from'ngx-image-cropper';
 import { ImageCroppedEvent } from 'ngx-image-cropper/src/interfaces/image-cropped-event.interface';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-// import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { RequestComponent } from './modals/request/request.component';
 //Declaracion de Rutas en la app
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
     ConversationComponent,
     ProfileComponent,
     MenuComponent,
-    SearchPipe
+    SearchPipe,
+    RequestComponent
   ],
   imports: [
   BrowserModule,
@@ -54,9 +56,10 @@ const appRoutes: Routes = [
   AngularFireDatabaseModule,
   ImageCropperModule,
   NgbModule.forRoot(),
-  // BootstrapModalModule.forRoot({container: document.body})
+  BootstrapModalModule.forRoot({container: document.body})
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [RequestComponent]
 })
 export class AppModule { }

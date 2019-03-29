@@ -6,6 +6,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
   providedIn: 'root'
 })
 export class UserService {
+ 
   // obtener datos de firebase
   constructor(private angularFireDatabase: AngularFireDatabase) {}
   // todos los usuarios
@@ -26,5 +27,9 @@ export class UserService {
     // guardar imagen del usuario
     setAvatar(avatar, uid) {
       return this.angularFireDatabase.object('/users/' + uid + '/avatar').set(avatar);
+    }
+    addFriend(userId, friendId) {
+      this.angularFireDatabase.object('users/' + userId + '/friends/' + friendId).set(friendId);
+      return this.angularFireDatabase.object('users/' + friendId + '/friends/' + userId).set(userId);
     }
 }
