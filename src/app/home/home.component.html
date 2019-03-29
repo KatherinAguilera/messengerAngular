@@ -8,12 +8,11 @@
           </div>
         </div>
         <div class="col">
-          <b>{{user?.nick}}</b>
+          <b>Eduardo</b>
           <div>
-            <span>{{user?.status}}</span><br/>
-            <b>{{user?.subnick}}</b><br/>
-            <b>{{user?.email}}</b>
-            <span>< Escribe un mensaje Personal ></span><br />
+            <span>Online</span>
+            <br />
+            <span>< Escribe un mensaje Personal ></span> <br />
             <a (click)="logout()">Logout</a>
           </div>
         </div>
@@ -32,20 +31,18 @@
       </div>
     </div>
     <hr />
-    <b *ngIf="friends">Amigos ({{friends.length}} / {{friends.length}})</b>
-    <div *ngFor="let user of friends | search: query; let i = index" class="disblo marbo5">
-        <span routerLink="/conversation/{{user.uid}}">
-          <img src="assets/img/logo_live_online.png" class="icon">
-          <b>{{user.nick}}</b> - {{user.subnick || 'No subnick'}}
-          <small>{{user.email}}</small>
-        </span>
+    <b *ngIf="user && user.friends">Amigos ({{user.friends.length}} / {{user.friends.length}})</b>
+    <div *ngIf="user && user.friends">
+      <div class="disblo marbo5">
+        <app-contact class="col-md-12" *ngFor="let user of user.friends" [uid]="user" ></app-contact>
+      </div>
     </div>
   </div>
 
 
 </div>
-
 <!--Este codigo se implementa para el modal con Angular-->
+
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Agregar Amigo</h4>
@@ -63,3 +60,5 @@
     <button type="button" class="btn btn-outline-dark" (click)="sendRequest()">Guardar</button>
   </div>
 </ng-template>
+
+
