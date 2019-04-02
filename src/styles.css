@@ -33,7 +33,9 @@
   box-shadow: 3px3px21px1pxrgba(0, 0, 0, 0.75);
   display: inline-block;
 }
-
+.prof{
+  text-align: center;
+}
 .center{
   text-align: center !important;
 
@@ -80,6 +82,7 @@ input[type="file"] {
   padding: 6px 12px;
   cursor: pointer;
   border: 1px solid #8dd2f3;
+  margin-top: 10px;
 }
 .shaker {
   animation: shake .5s;

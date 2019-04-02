@@ -14,3 +14,9 @@
   color: azure;
   margin-left: 8px;
 }
+.register{
+  background: limegreen;
+  color: white !important;
+  padding: 3px 5px;
+  border-radius: 3px;
+}

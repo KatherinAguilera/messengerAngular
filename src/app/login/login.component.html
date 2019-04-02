@@ -19,7 +19,7 @@
         </div>
         <div class="center marto15">
           <p *ngIf="operation == 'register'">Ya tienes cuenta? Has <a (click)="operation = 'login'" >Login</a></p>
-          <p *ngIf="operation == 'login'"> No tienes cuenta? <a (click)="operation = 'register'" >Registrate</a></p>
+          <p *ngIf="operation == 'login'"> No tienes cuenta? <a class="register" (click)="operation = 'register'" >Registrate</a></p>
           <button (click)="login()" *ngIf="operation == 'login'" class="btn btn-primary">Iniciar Sesión</button>
           <button (click)="register()" *ngIf="operation == 'register'" class="btn btn-primary">Registrarme</button>
           <button (click)="loginWithFacebook()" *ngIf="operation == 'login'"class="btn facebook">Iniciar con Facebook</button>

@@ -3,3 +3,8 @@
   background-size: 100%;
   background-repeat: no-repeat;
 }
+.change{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -4,16 +4,17 @@
       <div class="row">
         <div class="col-md-auto">
           <div class="avatarFrameonline">
-            <img src="assets/img/generic_avatar.png" id="homeAvatarPicture">
+            <img src="{{user?.avatar}}" id="homeAvatarPicture">
+            <a class="logout" (click)="logout()">Logout</a>
           </div>
         </div>
-        <div class="col">
-          <b>Eduardo</b>
+        <div class="col datos">
+         <span class="title">Nick: </span><b>{{user?.nick}}</b>
           <div>
-            <span>Online</span>
-            <br />
-            <span>< Escribe un mensaje Personal ></span> <br />
-            <a (click)="logout()">Logout</a>
+            <span class="title">Status: </span><span>{{user?.status}}</span><br/>
+            <span class="title">SubNick: </span><b>{{user?.subnick}}</b><br/>
+            <span class="title">E-mail: </span><b>{{user?.email}}</b>
+            <span> < Escribe un mensaje Personal ></span><br />
           </div>
         </div>
       </div>
@@ -21,13 +22,12 @@
   </div>
 
   <div class="whiteContainerPadded marto15">
-
     <div class="row">
       <div class="col">
         <input type="text" class="form-control" placeholder="Buscar Amigo" [(ngModel)]="query" />
       </div>
-      <div class="col-md-auto">
-        <img (click)="open(content)" src="assets/img/logo_live_add.png" class="icon" alt="">
+      <div>
+        <img (click)="open(content)" src="assets/img/logo_live_add.png" class="icon plusfriends" alt="">
       </div>
     </div>
     <hr />
